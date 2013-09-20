@@ -56,33 +56,91 @@ variants of Markdown have interpreted the loosely defined guidelines
 specified in [original Markdown syntax] in different ways, thereby
 resulting in this divergence.
 
-vfmd attempts to provide a well-defined specification for the _core
-syntax_ of Markdown. vfmd shall clearly define the interpretation (and
-hence, the output) for all possible input scenarios, thereby enabling
-different Markdown implementations that adopt it to behave consistently
-in interpreting the _core syntax_ of Markdown.
+A specification for Markdown would make it possible for different
+implementations that adopt the specification to interpret an input in a
+consistent manner.
 
-## Goals
+## Prior work
 
-These are the goals for vfmd:
+There have been two significant attempts to unambiguously define the
+Markdown syntax. Both include some syntax extensions, but neither of
+them can be said to have comprehensively defined the _core syntax_ of
+Markdown.
 
- 1. vfmd shall unambiguously define the interpretation for all input
-    scenarios for the _core syntax_ of Markdown
- 2. In case a vfmd implementation wants to support any additional syntax
+ 1. **Markdown Extra Specification**
+
+    [Michel Fortin], the creator of PHP Markdown, started work on a
+    specification for the original Markdown plus the extensions in PHP
+    Markdown. The [Markdown Extra Syntax specification] defines many
+    block-level syntax constructs, but no span-level constructs are
+    addressed as yet. The specification is not complete, and work on
+    this seems to have [stopped as of July 2008].
+
+ 2. **Grammar from peg-markdown**
+
+    [John MacFarlane]'s [peg-markdown] includes a [parsing expression
+    grammar] for Markdown, which might be considered as a specification
+    for Markdown. The included [PEG grammar file] contains both the
+    grammar, and the code to be executed at specific points during
+    parsing, and it appears that the grammar and the code are closely
+    and inseparably integrated with each other.
+
+    The grammar part of that file does not seem to be able to
+    autonomously describe the Markdown syntax completely. For example,
+    consider a bulleted list contained within a blockquote. The grammar
+    does not describe this scenario by itself. Instead, the grammar
+    specifies that blockquotes can contain arbitrary text. The
+    implementation extracts the blockquoted arbitrary text and runs the
+    parser on the extracted text to recognize block-elements within it.
+    This is a perfectly acceptable design for an implementation, but
+    this means that the grammar falls short of being able to represent
+    the complete Markdown syntax independently.
+
+[Michel Fortin]: http://michelf.ca/
+[Markdown Extra Syntax specification]: http://michelf.ca/specs/markdown-extra/
+[stopped as of July 2008]: http://thr3ads.net/markdown-discuss/2008/07/343649-standard-izing-extended-markdown#m343708
+
+[John MacFarlane]: http://johnmacfarlane.net/
+[peg-markdown]: https://github.com/jgm/peg-markdown
+[parsing expression grammar]: http://en.wikipedia.org/wiki/Parsing_expression_grammar
+[PEG grammar file]: https://raw.github.com/jgm/peg-markdown/master/markdown_parser.leg
+
+
+## The design of vfmd
+
+vfmd is designed with the following goals and guiding principles in
+mind.
+
+In adhering to these goals and principles, the vfmd syntax deviates in
+some aspects from the [original Markdown syntax]. These differences make
+it possible to define the syntax as a well-defined specification, and
+also make the syntax a little more readable.
+
+### Goals
+
+The following are the goals for the vfmd specification:
+
+ 1. The vfmd specification shall unambiguously define the interpretation
+    for all input scenarios for the _core syntax_ of Markdown
+ 2. Any input should be accepted as a valid vfmd document
+ 3. In case a vfmd implementation wants to support any additional syntax
     elements not covered by the _core syntax_ (e.g., fenced code-blocks,
-    footnotes), vfmd shall define how the handling of the custom
-    additional syntax should be integrated with the handling of the
-    _core syntax_
+    footnotes), the vfmd specification shall define how the handling of
+    the custom additional syntax should be integrated with the handling
+    of the _core syntax_
 
-## Guiding Principles
+### Guiding Principles
 
 The following are the principles that guide the design of the vfmd
-specification, given in the order of their preference:
+syntax, given in the order of their preference:
 
-1. Stick to the goal of the original Markdown: "Make it as readable as
-   possible". Keep in mind that "the biggest source of inspiration for
-   Markdown’s syntax is the format of plain text email".
-2. Make the output rich text structurally resemble the input plain text
-3. Any input should be acceptable as valid Markdown
-4. Stick to the [original Markdown syntax] as much as possible
+1. As far as possible, the vfmd syntax shall stick to the goal of the
+   original Markdown: "Make it as readable as possible". Just like
+   the original Markdown, the biggest source of inspiration for vfmd
+   shall be the format of plain text email.
+2. As far as possible, the vfmd syntax should make the input document
+   follow the look and structure of the output richtext
+3. As far as possible, the vfmd syntax shall not be different from the
+   [original Markdown syntax]
 
+[original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
