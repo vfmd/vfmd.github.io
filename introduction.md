@@ -11,20 +11,24 @@ permalink: introduction/
 **vfmd** is a variant of [Markdown] with an unambiguous specification of
 its syntax.
 
-vfmd stands for _vanilla-flavoured markdown_. It formalises the
-[original Markdown syntax] as a fully-defined specification, adding a
-few (arguably minor) modifications to the syntax in the process.
+vfmd stands for _vanilla-flavoured markdown_. It formalises [John
+Gruber]'s [original Markdown syntax] as a fully-defined specification,
+adding a few (arguably minor) modifications to the syntax in the
+process.
 
+[John Gruber]: http://daringfireball.net/
 [Markdown]: http://daringfireball.net/projects/markdown/
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
 
 ## Background
 
-The [original Markdown syntax] document is a set of loosely defined
-guidelines on what the syntax elements in Markdown are, and how they
-should be interpreted. <span id="core-syntax">The syntax elements
-specified in the [original Markdown syntax] constitute the **core
-syntax** of Markdown.</span>
+The [original Markdown syntax page] is really a userguide that helps
+authors in writing a document in Markdown. For _implementers_ of
+Markdown, the [original Markdown syntax page] is at best a set of
+loosely defined guidelines on how an input shall be interpreted.
+<span id="core-syntax">The syntax elements specified in the [original
+Markdown syntax] constitute what is termed as the **core syntax** of
+Markdown.</span>
 
 Since the original Markdown was published in 2004, there have been many
 different implementations of Markdown, written in different programming
@@ -32,15 +36,14 @@ languages, and many different flavours of Markdown, with additional or
 modified features or syntax elements.  All these different
 implementations and flavours of Markdown are based on the _core syntax_
 as defined in the [original Markdown], but their interpretations have
-[not always been consistent][babelmark2], even when we consider just the
+[not always been consistent][babelmark2-faq], even when we consider just the
 _core syntax_. This divergence implies that, unless written very
 carefully to avoid any corner cases, a Markdown document is tied to the
 variant of Markdown that was used while writing the document.
 
+[original Markdown syntax page]: http://daringfireball.net/projects/markdown/syntax
 [original Markdown]: http://daringfireball.net/projects/markdown/syntax
-[babelmark2]: http://johnmacfarlane.net/babelmark2/faq.html
-
-## Purpose
+[babelmark2-faq]: http://johnmacfarlane.net/babelmark2/faq.html
 
 Markdown would be a lot more valuable when different implementations and
 flavours agree on the output for all input scenarios, atleast when using
