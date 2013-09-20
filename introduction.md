@@ -144,3 +144,23 @@ syntax, given in the order of their preference:
    [original Markdown syntax]
 
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
+
+## Thanks
+
+Many thanks to:
+
+  * [John Gruber], who came up with the original Markdown syntax
+  * [John MacFarlane], for [Babelmark2] and the [Babelmark2 FAQ] which
+    were immensely useful in designing vfmd
+
+[babelmark2]: http://johnmacfarlane.net/babelmark2/
+[Babelmark2 FAQ]: http://johnmacfarlane.net/babelmark2/faq.html
+
+## Contact
+
+The vfmd project is by [Roopesh Chander].
+
+Email: <roop@forwardbias.in>  
+Twitter: [@roopeshchander](http://twitter.com/roopeshchander)
+
+[Roopesh Chander]: http://roopc.net/
