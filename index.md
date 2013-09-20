@@ -43,7 +43,7 @@ so the specification includes information on how the syntax can be
 extended to support features like that in an implementation of vfmd.
 
 [Markdown]: http://daringfireball.net/projects/markdown/
-[Introducing vfmd]: http://vfmd.github.io/vfmd-spec/introduction/
+[Introducing vfmd]: http://vfmd.github.io/introduction/
 
 ## What's up?
 
