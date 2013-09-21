@@ -82,11 +82,3 @@ that's just wrong, please open an issue (or pull-request) on the
 [vfmd-spec repository].
 
 [vfmd-spec repository]: https://github.com/vfmd/vfmd-spec/
-
-## Contact
-
-The vfmd project is by Roopesh Chander.
-
-Email: <roop@forwardbias.in>  
-Twitter: [@roopeshchander](http://twitter.com/roopeshchander)
-
