@@ -31,7 +31,7 @@ In brief, these are the differences between the [vfmd syntax] and the
  1. [Intra-word emphasis]: The original Markdown allows intra-word
     emphasis using Markdown emphasis constructs. vfmd doesn't.
 
- 2. **Simplified reference link/image syntax**: The syntax description
+ 2. [Simplified reference link/image syntax]: The syntax description
     of the original Markdown does not talk about links like [this] as a
     short form of [this][]. vfmd encourages using links like [this]
     instead of like [this][].
@@ -60,13 +60,13 @@ None of these is new, really.
 
 Items #1, #3 and (some aspects of) #5 were the "gotchas" spotted by John
 Fraser as discussed in [Three Markdown Gotchas]. Item #2 is a syntax
-improvement that [John Gruber came up with], but this improved syntax
-isn't mentioned in his Markdown syntax description page. Item #4 is the
-first problem that Jeff Atwood mentions in his [Responsible Open Source
-Code Parenting] post.
+improvement that [John Gruber came up with][short-ref-syntax-gruber],
+but this improved syntax isn't mentioned in his Markdown syntax
+description page. Item #4 is the first problem that Jeff Atwood mentions
+in his [Responsible Open Source Code Parenting] post.
 
 [Three Markdown Gotchas]: http://blog.stackoverflow.com/2008/06/three-markdown-gotcha/
-[John Gruber came up with]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001117.html
+[short-ref-syntax-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001117.html
 [Responsible Open Source Code Parenting]: http://www.codinghorror.com/blog/2009/12/responsible-open-source-code-parenting.html
 
 ## Differences
@@ -133,4 +133,36 @@ constructs. So, for an input vfmd that looks like this:
 the corresponding HTML output will be:
 
     <p>That is un_frigging_believable.</p>
+
+
+<h3 id="simplified-ref-link-image-syntax">Simplified reference link/image syntax</h3>
+
+[Simplified reference link/image syntax]: #simplified-ref-link-image-syntax
+
+In vfmd, you are encouraged to specify reference links like this:
+
+    Just ask [Google].
+
+    [Google]: http://google.com/
+
+The syntax page for the original Markdown doesn't mention this syntax,
+but mentions the _implicit link name_ syntax, which looks like this:
+
+    Just ask [Google][].
+
+    [Google]: http://google.com/
+
+Though the short form of the _implicit link name_ syntax (of using
+[this] instead of [this[]) isn't mentioned in the syntax page for the
+original Markdown, it was [conceived][short-ref-syntax-gruber] by John
+Gruber himself and implemented in [Markdown.pl v1.0.2b2].
+
+[short-ref-syntax-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001117.html
+[Markdown.pl v1.0.2b2]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001125.html
+
+Writing like [this] for links is a much cleaner link syntax than
+[this][]. It really does make the text look not-marked-up. vfmd
+encourages using links like [this] instead of like [this][], though it
+supports both forms.
+
 
