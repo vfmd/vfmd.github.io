@@ -36,7 +36,7 @@ In brief, these are the differences between the [vfmd syntax] and the
     short form of [this][]. vfmd encourages using links like [this]
     instead of like [this][].
 
- 3. **Lists and the 4-space rule**: vfmd has a simpler and clearer rule
+ 3. [Lists and the 4-space rule]: vfmd has a simpler and clearer rule
     (in comparison to the original Markdown syntax) for nesting blocks
     inside lists, that results in more intuitive output for nested
     lists.
@@ -165,4 +165,81 @@ Writing like [this] for links is a much cleaner link syntax than
 encourages using links like [this] instead of like [this][], though it
 supports both forms.
 
+
+<h3 id="lists-and-4-space-rule">Lists and the 4-space rule</h3>
+
+[Lists and the 4-space rule]: #lists-and-4-space-rule
+
+The original Markdown syntax page suggests that blocks nested within
+list items should be indented by 4 additional spaces.
+
+On including paragraphs in list items, the original Markdown syntax page
+says:
+
+> List items may consist of multiple paragraphs. Each subsequent
+> paragraph in a list item must be indented by either 4 spaces or one
+> tab.
+
+On including code blocks in list items, the original Markdown syntax
+page says:
+
+> To put a code block within a list item, the code block needs to be
+> indented twice — 8 spaces or two tabs.
+
+Though left unspecified, many implementations (including John Gruber's
+Markdown.pl) extend this to nested lists as well, which results in some
+rather unintuitive interpretation of lists.
+
+For example, the input:
+
+    - top
+      - indented by two spaces
+        - indented by four spaces
+          - indented by six spaces
+        - indented by four spaces
+
+is interpreted according to the (implied) original Markdown syntax as:
+
+<blockquote>
+    <ul>
+        <li>top
+            <ul>
+                <li>indented by two spaces</li>
+                <li>indented by four spaces
+                    <ul>
+                        <li>indented by six spaces</li>
+                    </ul>
+                </li>
+                <li>indented by four spaces</li>
+            </ul>
+        </li>
+    </ul>
+</blockquote>
+
+vfmd redefines the syntax for nesting lists by requiring that nested
+elements align vertically with the starting position of the first
+paragraph of the list item.
+
+For the above example, the vfmd interpretation would be:
+
+<blockquote>
+    <ul>
+        <li>top
+            <ul>
+                <li>indented by two spaces
+                    <ul>
+                        <li>indented by four spaces
+                            <ul>
+                                <li>indented by six spaces</li>
+                            </ul>
+                        </li>
+                        <li>indented by four spaces</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</blockquote>
+
+which follows the structure of the input text much more closely.
 
