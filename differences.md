@@ -41,7 +41,7 @@ In brief, these are the differences between the [vfmd syntax] and the
     inside lists, that results in more intuitive output for nested
     lists.
 
- 4. **Better automatic link detection**: In vfmd, straightforward links
+ 4. [Better automatic link detection]: In vfmd, straightforward links
     like `http://example.net` don't need to be surrounded in \<angle
     brackets\> to get automatically converted to links.
 
@@ -243,3 +243,41 @@ For the above example, the vfmd interpretation would be:
 
 which follows the structure of the input text much more closely.
 
+
+<h3 id="better-auto-link-detection">Better automatic link detection</h3>
+
+[Better automatic link detection]: #better-auto-link-detection
+
+The original Markdown syntax requires that links be surrounded in
+\<angle brackets\> for them to get linked up. For the input:
+
+    Go to <http://example.net/> and find out.
+
+the original Markdown syntax will produce the output:
+
+    Go to <a href="http://example.net/">http://example.net/</a> and find out.
+
+If the link is not surrounded in \<angle brackets\>, the original
+Markdown syntax will not recognize that as a link.
+
+So, for the input:
+
+    Go to http://example.net/ and find out.
+
+the original Markdown syntax will produce the output:
+
+    Go to http://example.net/ and find out.
+
+However, in plain text email (which is the inspiration for the original
+Markdown and for vfmd), links are often found without the surrounding
+\<angle brackets\>. Therefore, vfmd recognizes fully-formed links of the
+form `scheme://path` even if they are not enclosed in \<angle
+brackets\>.
+
+For the input:
+
+    Go to http://example.net/ and find out.
+
+vfmd will produce the HTML output:
+
+    Go to <a href="http://example.net/">http://example.net/</a> and find out.
