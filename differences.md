@@ -28,7 +28,7 @@ that syntax.
 In brief, these are the differences between the [vfmd syntax] and the
 [original Markdown syntax]:
 
- 1. **Intra-word emphasis**: The original Markdown allows intra-word
+ 1. [Intra-word emphasis]: The original Markdown allows intra-word
     emphasis using Markdown emphasis constructs. vfmd doesn't.
 
  2. **Simplified reference link/image syntax**: The syntax description
@@ -68,3 +68,69 @@ Code Parenting] post.
 [Three Markdown Gotchas]: http://blog.stackoverflow.com/2008/06/three-markdown-gotcha/
 [John Gruber came up with]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001117.html
 [Responsible Open Source Code Parenting]: http://www.codinghorror.com/blog/2009/12/responsible-open-source-code-parenting.html
+
+## Differences
+
+<h3 id="intra-word-emphasis">Intra-word emphasis</h3>
+
+[Intra-word emphasis]: #intra-word-emphasis
+
+The original Markdown allows intra-word emphasis. For example, in the
+original Markdown, the following:
+
+    That is un*frigging*believable.
+
+    That is un_frigging_believable.
+
+will be converted to:
+
+    <p>That is un<em>frigging</em>believable.</p>
+
+    <p>That is un<em>frigging</em>believable.</p>
+
+But actually, it's not _that_ uncommon to have literal underscores in
+the middle of words, especially in filenames and URL fragments, so
+interpreting them as indicators of emphasis would be incorrect and
+confusing.
+
+Moreover, intra-word emphasis results in ambiguity. For certain inputs
+involving intra-word emphasis, there are multiple ways in which it can
+be interpreted. For example:
+
+    *One **Two Three***Four** Five*
+
+The above input could mean any of the following HTML equivalents, and
+the author of the text could have meant any of these with equal
+probabilities:
+
+  1. `<em>One <strong>Two Three***Four</strong> Five</em>`
+  2. `<em>One <strong>Two Three</strong></em>Four** Five*`
+  3. `*One **Two Three<em><strong>Four</strong> Five</em>`
+
+The above example uses multiple words, but even if we allow only
+intra-word emphasis that is contained within a word, the possibility of
+ambiguous input still remains.
+
+On the other hand, in Japanese (and maybe in some other languages as
+well), there is no concept of using spaces to separate words. So,
+disallowing intra-word emphasis results in problems like
+[this][jap-md-1] and [this][jap-md-2]. So, in order to be able to use
+any kind of Markdown emphasis construct in Japanese text, honouring
+intra-word emphasis becomes necessary.
+
+[jap-md-1]: http://six.pairlist.net/pipermail/markdown-discuss/2005-November/001723.html
+[jap-md-2]: http://meta.japanese.stackexchange.com/questions/120/
+
+Considering the above points, the cons of supporting intra-word emphasis
+appear to outweigh the benefits. Therefore, it was decided that vfmd
+would not allow intra-word emphasis.
+
+In vfmd, it is not possible to emphasize only part of a word using vfmd
+constructs. So, for an input vfmd that looks like this:
+
+    That is un_frigging_believable.
+
+the corresponding HTML output will be:
+
+    <p>That is un_frigging_believable.</p>
+
