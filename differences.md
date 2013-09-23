@@ -45,7 +45,7 @@ In brief, these are the differences between the [vfmd syntax] and the
     like `http://example.net` don't need to be surrounded in \<angle
     brackets\> to get automatically converted to links.
 
- 5. **Including raw HTML**: The original Markdown syntax page implies that
+ 5. [Including raw HTML]: The original Markdown syntax page implies that
     HTML blocks can be freely included within Markdown, and shall be
     recognized correctly. In practice however, correctly figuring out
     where the HTML block ends is a hard problem for a Markdown parser,
@@ -58,12 +58,12 @@ In brief, these are the differences between the [vfmd syntax] and the
 
 None of these is new, really.
 
-Items #1, #3 and (some aspects of) #5 were the "gotchas" spotted by John
-Fraser as discussed in [Three Markdown Gotchas]. Item #2 is a syntax
-improvement that [John Gruber came up with][short-ref-syntax-gruber],
-but this improved syntax isn't mentioned in his Markdown syntax
-description page. Item #4 is the first problem that Jeff Atwood mentions
-in his [Responsible Open Source Code Parenting] post.
+Items #1, #3 and #5 were the "gotchas" spotted by John Fraser as
+discussed in [Three Markdown Gotchas]. Item #2 is a syntax improvement
+that [John Gruber came up with][short-ref-syntax-gruber], but this
+improved syntax isn't mentioned in his Markdown syntax description page.
+Item #4 is the first problem that Jeff Atwood mentions in his
+[Responsible Open Source Code Parenting] post.
 
 [Three Markdown Gotchas]: http://blog.stackoverflow.com/2008/06/three-markdown-gotcha/
 [short-ref-syntax-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001117.html
@@ -281,3 +281,112 @@ For the input:
 vfmd will produce the HTML output:
 
     Go to <a href="http://example.net/">http://example.net/</a> and find out.
+
+
+<h3 id="including-raw-html">Including raw HTML</h3>
+
+[Including raw HTML]: #including-raw-html
+
+The original Markdown syntax says this about including HTML blocks in
+Markdown text:
+
+> For any markup that is not covered by Markdown's syntax, you simply
+> use HTML itself. There's no need to preface it or delimit it to
+> indicate that you're switching from Markdown to HTML; you just use
+> the tags.
+
+> The only restrictions are that block-level HTML elements - e.g. `<div>`,
+> `<table>`, `<pre>`, `<p>`, etc. - must be separated from surrounding
+> content by blank lines, and the start and end tags of the block should
+> not be indented with tabs or spaces. Markdown is smart enough not
+> to add extra (unwanted) `<p>` tags around HTML block-level tags.
+
+In practice, however, the identification of where the HTML block ends is
+not consistent across implementations. In fact, it turns out that
+identifying the end of the HTML block is quite a hard problem, if we
+consider the possibility that the HTML block can have badly-formed HTML
+(which is not quite an improbable scenario, actually).
+
+If we know the end of the HTML block beforehand, it is possible to make
+sense of badly-formed HTML containing misnested or unclosed tags. If
+we're guaranteed that the HTML is well-formed, it is possible to
+identify the end of the HTML block. But identifying the end of a
+potentially badly-formed HTML block in a stream of text is an extremely
+difficult (if not impossible) problem. Figuring out the end of the HTML
+block is necessary to correctly process the rest of the input.
+
+That apart, another point of concern is that sometimes, document authors
+would like to have text within HTML blocks processed as Markdown (and
+not as verbatim HTML). John Gruber [proposed][markdown=1 proposal] that
+document authors add `markdown="1"` to the attributes of the block-level
+HTML element within which Markdown is to be processed, like this:
+
+    <div class="content" markdown="1">
+    Markdown is processed *here*
+    </div>
+
+    <div class="summary">
+    No Markdown processing here
+    </div>
+
+
+[markdown=1 proposal]: http://six.pairlist.net/pipermail/markdown-discuss/2004-August/000669.html
+[Markdown.pl 1.0.2b4]: http://six.pairlist.net/pipermail/markdown-discuss/2005-September/001551.html
+
+However, this solution fails to address the case where a verbatim HTML
+block needs to be embedded within a Markdown-enabled HTML block.
+For example, consider the case where our document is composed of a
+hierarchy of block-level HTML elements, some of which need to be treated
+as HTML blocks, and some of which need to support Markdown processing,
+like this:
+
+    *Abstract*: Some text here
+
+    <div class="main-article">
+
+    <div id="introduction">
+        Intro text (needs Markdown processing)
+    </div>
+
+    <div id="content">
+        Content text (needs Markdown processing)
+        <div id="embedded-html-block">
+            HTML block (no Markdown processing here)
+        </div>
+    </div>
+
+    <div id="summary">
+        Summary text (needs Markdown processing)
+    </div>
+
+    </div>
+
+The `markdown="1"` solution does not address the above requirement.
+
+Considering the above points, vfmd takes a different approach to
+handling inline HTML. In vfmd, the Markdown-processable HTML blocks are
+separated from the verbatim HTML blocks  with blank lines, like this:
+
+    <div>
+
+    Markdown processing done *here*
+
+    <div>
+    HTML block (no Markdown processing here)
+    </div>
+
+    Markdown processing done *here*
+
+    </div>
+
+In this approach, the verbatim HTML sections are visually separated from
+the Markdown-processable sections, which makes the text comprehendible.
+That said, this approach has been studied and
+[dismissed][blank-line-to-separate-html] by John Gruber as being "too
+arbitrary".
+
+The vfmd approach also makes it unnecessary for an implementation to
+figure out where a HTML block ends.
+
+[blank-line-to-separate-html]: http://six.pairlist.net/pipermail/markdown-discuss/2004-March/000171.html
+
