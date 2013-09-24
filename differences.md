@@ -60,14 +60,17 @@ None of these is new, really.
 
 Items #1, #3 and #5 were the "gotchas" spotted by John Fraser as
 discussed in [Three Markdown Gotchas]. Item #2 is a syntax improvement
-that [John Gruber came up with][short-ref-syntax-gruber], but this
-improved syntax isn't mentioned in his Markdown syntax description page.
-Item #4 is the first problem that Jeff Atwood mentions in his
-[Responsible Open Source Code Parenting] post.
+that John Gruber and Aaron Swartz
+[discussed][short-ref-gruber-aaron], but this improved syntax isn't
+mentioned in the original Markdown syntax description page. Item #4 is
+the first problem that Jeff Atwood mentions in his [Responsible Open
+Source Code Parenting] post. Moreover, all these items have been
+discussed multiple times in the [markdown-discuss mailing list].
 
 [Three Markdown Gotchas]: http://blog.stackoverflow.com/2008/06/three-markdown-gotcha/
-[short-ref-syntax-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001117.html
+[short-ref-gruber-aaron]: http://six.pairlist.net/pipermail/markdown-discuss/2004-March/000303.html
 [Responsible Open Source Code Parenting]: http://www.codinghorror.com/blog/2009/12/responsible-open-source-code-parenting.html
+[markdown-discuss mailing list]: http://six.pairlist.net/pipermail/markdown-discuss/
 
 ## Differences
 
@@ -154,10 +157,9 @@ but mentions the _implicit link name_ syntax, which looks like this:
 
 Though the short form of the _implicit link name_ syntax (of using
 [this] instead of [this[]) isn't mentioned in the syntax page for the
-original Markdown, it was [conceived][short-ref-syntax-gruber] by John
-Gruber himself and implemented in [Markdown.pl v1.0.2b2].
+original Markdown, it was [conceived][short-ref-gruber-aaron] by John
+Gruber and Aaron Swartz, and implemented in [Markdown.pl v1.0.2b2].
 
-[short-ref-syntax-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001117.html
 [Markdown.pl v1.0.2b2]: http://six.pairlist.net/pipermail/markdown-discuss/2005-March/001125.html
 
 Writing like [this] for links is a much cleaner link syntax than
