@@ -12,8 +12,8 @@ permalink: /
 specification of its syntax.
 
 It's just plain-vanilla Markdown, but formalized with a spec. Hence
-vfmd, or _vanilla-flavoured markdown_. (There are some differences with
-the original Markdown, but arguably minor.)
+vfmd, or _vanilla-flavoured markdown_. (There are some [differences]
+with the original Markdown, but nothing big.)
 
 For a more detailed introduction, see [Introducing vfmd].
 
@@ -36,7 +36,7 @@ For more details on the motivation behind vfmd, see [Introducing vfmd].
 ## Does it have features 'foo' and 'bar'?
 
 vfmd supports all syntax constructs in John Gruber's [Markdown], with
-some differences. It does not define the syntax for the additional
+some [differences]. It does not define the syntax for the additional
 features available in some variants of Markdown, like tables, definition
 lists or footnotes.  However, extendability is part of the vfmd design,
 so the specification includes information on how the syntax can be
@@ -44,6 +44,7 @@ extended to support features like that in an implementation of vfmd.
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [Introducing vfmd]: http://vfmd.github.io/introduction/
+[differences]: http://vfmd.github.io/differences/
 
 ## What's up?
 

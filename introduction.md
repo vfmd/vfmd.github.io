@@ -13,12 +13,12 @@ its syntax.
 
 vfmd stands for _vanilla-flavoured markdown_. It formalises [John
 Gruber]'s [original Markdown syntax] as a fully-defined specification,
-adding a few (arguably minor) modifications to the syntax in the
-process.
+with some [modifications][differences] to the syntax.
 
 [John Gruber]: http://daringfireball.net/
 [Markdown]: http://daringfireball.net/projects/markdown/
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
+[differences]: http://vfmd.github.io/differences/
 
 ## Background
 
@@ -112,9 +112,9 @@ vfmd is designed with the following goals and guiding principles in
 mind.
 
 In adhering to these goals and principles, the vfmd syntax deviates in
-some aspects from the [original Markdown syntax]. These differences make
-it possible to define the syntax as a well-defined specification, and
-also make the syntax a little more readable.
+some aspects from the [original Markdown syntax]. These [differences]
+make it possible to define the syntax as a well-defined specification,
+and also make the syntax a little more readable.
 
 ### Goals
 
