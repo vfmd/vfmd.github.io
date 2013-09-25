@@ -19,15 +19,15 @@ syntax of the original Markdown as described in the [original Markdown
 syntax] page, and not with Markdown.pl, which is an implementation of
 that syntax.
 
-Moreover, there are several instances where the [vfmd userguide]
+Moreover, there are several instances where the [vfmd syntax guide]
 describes a syntax in a higher level of detail than the [original
 Markdown syntax] guide. Those are not included as differences in this
 document.
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-[vfmd syntax]: http://vfmd.github.io/vfmd-spec/userguide/
-[vfmd userguide]: http://vfmd.github.io/vfmd-spec/userguide/
+[vfmd syntax]: http://vfmd.github.io/vfmd-spec/syntax/
+[vfmd syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
 
 ## Overview of the differences
 

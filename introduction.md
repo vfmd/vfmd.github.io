@@ -22,7 +22,7 @@ with some [modifications][differences] to the syntax.
 
 ## Background
 
-The [original Markdown syntax page] is really a userguide that helps
+The [original Markdown syntax page] is really a syntax guide that helps
 authors in writing a document in Markdown. For _implementers_ of
 Markdown, the [original Markdown syntax page] is at best a set of
 loosely defined guidelines on how an input shall be interpreted.

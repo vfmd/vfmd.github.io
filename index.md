@@ -27,9 +27,9 @@ work perfectly with a blogging engine, even though they use different
 implementations of Markdown, created for different purposes and for
 different platforms. An important reason why that's not the case now is
 because Markdown has no spec - what exists, for the original Markdown,
-and for the other variants, is a userguide that tells us how to write in
-Markdown, not a spec that tells us unambiguously how Markdown should be
-interpreted.
+and for the other variants, is a syntax guide that tells us how to write
+in Markdown, not a spec that tells us unambiguously how Markdown should
+be interpreted.
 
 For more details on the motivation behind vfmd, see [Introducing vfmd].
 
@@ -54,12 +54,12 @@ extended to support features like that in an implementation of vfmd.
     the syntax for Markdown unambiguously and is intended for use in
     designing parsers for Markdown.
 
-  * **Userguide**:
+  * **Syntax guide**:
 
     The specification assumes basic knowledge of computer science
     concepts. For the convenience of authors, vfmd comes with a
-    [userguide] which describes the syntax in detail, but to a much
-    lesser degree than the specification. The userguide is work in
+    [syntax guide] which describes the syntax in detail, but to a much
+    lesser degree than the specification. The syntax guide is work in
     progress.
 
   * **Tests**:
@@ -71,10 +71,10 @@ extended to support features like that in an implementation of vfmd.
   * **Implementation**:
 
     There are no implementations of vfmd yet. I plan to start work on an
-    implementation after the userguide and testsuite are complete.
+    implementation after the syntax guide and testsuite are complete.
 
 [vfmd specification]: http://vfmd.github.io/vfmd-spec/specification/
-[userguide]: http://vfmd.github.io/vfmd-spec/userguide/
+[syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
 
 ## How can you help?
 
