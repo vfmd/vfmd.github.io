@@ -51,7 +51,12 @@ In brief, these are the differences between the [vfmd syntax] and the
     like `http://example.net` don't need to be surrounded in \<angle
     brackets\> to get automatically converted to links.
 
- 5. [Including raw HTML]: The original Markdown syntax page implies that
+ 5. [Double blank lines as end of blocks]: vfmd introduces a new rule
+    that is not present in the original Markdown syntax, wherein two
+    consecutive blank lines end the current blockquote or list or code
+    block.
+
+ 6. [Including raw HTML]: The original Markdown syntax page implies that
     HTML blocks can be freely included within Markdown, and shall be
     recognized correctly. In practice however, correctly figuring out
     where the HTML block ends is a hard problem for a Markdown parser,
@@ -290,6 +295,41 @@ vfmd will produce the HTML output:
 
     Go to <a href="http://example.net/">http://example.net/</a> and find out.
 
+
+<h3 id="double-blank-lines">Double blank lines as end of blocks</h3>
+
+[Double blank lines as end of blocks]: #double-blank-lines
+
+In vfmd, two consecutive blank lines signify the end of the current
+block for blockquotes, lists and code blocks. This enables document
+authors to write two blockquotes (or lists, or code blocks) one after
+the other, without them getting merged into one blockquote (or list or
+code block).
+
+For example, as per the original Markdown syntax, the following text:
+
+<pre><code> 1. Item 1
+ 2. Item 2
+ 3. Item 3
+
+
+
+    * Some other list
+    * Some other list
+</code></pre>
+
+will get interpreted as one list, with the "Some other list" items
+forming a sub-list of "Item 3".
+
+In vfmd, the above text will be interpreted as two separate lists, which
+is more consistent with the structure of the input text.
+
+This idea was [proposed][double-blanks-gruber] by John Gruber for
+signifying the end of lists, but was never implemented in Markdown.pl.
+vfmd adopts this idea for lists and extends it to blockquotes and code
+blocks as well for consistency.
+
+[double-blanks-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2006-October/000341.html
 
 <h3 id="including-raw-html">Including raw HTML</h3>
 
