@@ -61,7 +61,13 @@ In brief, these are the differences between the [vfmd syntax] and the
     starts lists at the number "1", irrespective of what number is used
     to start the list in the source text.
 
- 7. [Including raw HTML]: The original Markdown syntax page implies that
+ 7. [Misnested constructs]: The vfmd specification defines how misnested
+    constructs should be handled.  The original Markdown syntax does not
+    document the behaviour on encountering such bad input. (To be fair,
+    vfmd too doesn't include this in it's syntax guide page because most
+    document authors don't need to know this).
+
+ 8. [Including raw HTML]: The original Markdown syntax page implies that
     HTML blocks can be freely included within Markdown, and shall be
     recognized correctly. In practice however, correctly figuring out
     where the HTML block ends is a hard problem for a Markdown parser,
@@ -374,6 +380,55 @@ to the HTML output:
 
 In contrast, the original Markdown will not include the `start="3"`
 attribute in its output.
+
+<h3 id="misnested-constructs">Misnested constructs</h3>
+
+[Misnested constructs]: #misnested-constructs
+
+Consider the input text:
+
+    __strong *and__ em*
+
+    [link text `and](url "with") code` span
+
+The above are examples of misnested constructs. Whenever one span-level
+construct appears intertwined with another span-level construct (instead
+of one being nested within the other), the constructs are said to be
+misnested.
+
+The original Markdown syntax page does not define how these should be
+handled, which is understandable, given that the original Markdown
+syntax page is targeted at document writers.
+
+In vfmd too, the handing of misnested constructs is not defined in the
+syntax guide, but is defined in the specification page.
+
+This is how vfmd handles misnested constructs:
+
+ 1. Code-spans and images take the highest precedence, with the
+    first-occurring construct being prioritized
+
+    For example, in ``[link text `and](url "with") code` span``, the
+    code-span is identified, and the link is not honoured.
+
+ 2. HTML tags take the next precedence
+
+    For example, in `__strong <i>and__ italics</i>`, the HTML tags are
+    identified, but the strong emphasis is not honoured.
+
+ 3. All other span-level constructs together take the lowest precedence,
+    with the first-occuring construct being prioritized.
+
+    For example, in `__strong *and__ em*`, only the strong emphasis is
+    honoured because it occurs first.
+
+The idea that the first-occuring construct should be honoured was
+[proposed][misnested-constructs-rus] by Jacob Rus and
+[endorsed][misnested-constructs-gruber] by John Gruber.
+
+[misnested-constructs-rus]: http://six.pairlist.net/pipermail/markdown-discuss/2006-September/000237.html
+[misnested-constructs-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2006-September/000241.html
+
 
 <h3 id="including-raw-html">Including raw HTML</h3>
 
