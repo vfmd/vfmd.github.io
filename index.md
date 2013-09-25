@@ -46,32 +46,40 @@ extended to support features like that in an implementation of vfmd.
 [Introducing vfmd]: http://vfmd.github.io/introduction/
 [differences]: http://vfmd.github.io/differences/
 
-## What's up?
+## Deliverables
+
+The vfmd project aims to deliver the following:
 
   * **Specification**:
+    A document describing the syntax for Markdown unambiguously and
+    intended for use in designing parsers for Markdown.
+    The specification document can be found [here][vfmd specification].
 
-    The [vfmd specification] is almost complete. This document describes
-    the syntax for Markdown unambiguously and is intended for use in
-    designing parsers for Markdown.
+    _Status_: Done. However, it might undergo changes after
+    testsuite-development / feedback.
 
   * **Syntax guide**:
+    A document describing the syntax for Markdown, intended for use by
+    document authors. This document needs to be consistent with the
+    specification, and can have some ambiguities.
+    The syntax guide can be found [here][syntax guide].
 
-    The specification assumes basic knowledge of computer science
-    concepts. For the convenience of authors, vfmd comes with a
-    [syntax guide] which describes the syntax in detail, but to a much
-    lesser degree than the specification. The syntax guide is work in
-    progress.
+    _Status_: Done. However, it might undergo changes after
+    testsuite-development / feedback.
 
   * **Tests**:
+    A test suite to verify that an implementation confirms to the
+    specification for HTML output. This needs to be consistent with the
+    specification.
 
-    A test suite is being developed to help in checking whether an
-    implementation confirms to the vfmd syntax. The testsuite is work in
-    progress.
+    _Status_: In progress.
 
   * **Implementation**:
+    An implementation of the specification for converting vfmd text to
+    HTML. The implementation should be extendable to support additional
+    syntax elements in the way described in the specification.
 
-    There are no implementations of vfmd yet. I plan to start work on an
-    implementation after the syntax guide and testsuite are complete.
+    _Status_: Yet to start.
 
 [vfmd specification]: http://vfmd.github.io/vfmd-spec/specification/
 [syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
