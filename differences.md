@@ -56,7 +56,12 @@ In brief, these are the differences between the [vfmd syntax] and the
     consecutive blank lines end the current blockquote or list or code
     block.
 
- 6. [Including raw HTML]: The original Markdown syntax page implies that
+ 6. [Starting number in lists]: vfmd honours the number you use to start
+    a numbered list. In contrast, the original Markdown syntax always
+    starts lists at the number "1", irrespective of what number is used
+    to start the list in the source text.
+
+ 7. [Including raw HTML]: The original Markdown syntax page implies that
     HTML blocks can be freely included within Markdown, and shall be
     recognized correctly. In practice however, correctly figuring out
     where the HTML block ends is a hard problem for a Markdown parser,
@@ -306,7 +311,9 @@ authors to write two blockquotes (or lists, or code blocks) one after
 the other, without them getting merged into one blockquote (or list or
 code block).
 
-For example, as per the original Markdown syntax, the following text:
+The original Markdown syntax does not specify such a rule.
+
+For example:
 
 <pre><code> 1. Item 1
  2. Item 2
@@ -318,11 +325,9 @@ For example, as per the original Markdown syntax, the following text:
     * Some other list
 </code></pre>
 
-will get interpreted as one list, with the "Some other list" items
-forming a sub-list of "Item 3".
-
-In vfmd, the above text will be interpreted as two separate lists, which
-is more consistent with the structure of the input text.
+In vfmd, the above text will be interpreted as two separate lists,
+rather than making the latter items a sublist of "Item 3". vfmd's
+interpretation is more consistent with the structure of the input text.
 
 This idea was [proposed][double-blanks-gruber] by John Gruber for
 signifying the end of lists, but was never implemented in Markdown.pl.
@@ -330,6 +335,45 @@ vfmd adopts this idea for lists and extends it to blockquotes and code
 blocks as well for consistency.
 
 [double-blanks-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2006-October/000341.html
+
+
+<h3 id="list-starting-number">Starting number in lists</h3>
+
+[Starting number in lists]: #list-starting-number
+
+In both vfmd and the original Markdown, the order of the numbers in a
+numbered list is immaterial - the list will always be ordered correctly
+in the output. In addition to that, vfmd allows the list to start at any
+arbitrary number, while in the original Markdown, the list is always
+assumed to start at the number "1".
+
+The original Markdown syntax page says:
+
+> If you do use lazy list numbering, however, you should still start the
+> list with the number 1. At some point in the future, Markdown may
+> support starting ordered lists at an arbitrary number.
+
+vfmd honours the starting number used in the list and preserves that in
+the output.
+
+For example, vfmd would convert the following text:
+
+    3. Cueball
+    1. Black Hat
+    1. White Hat
+    7. Raptor
+
+to the HTML output:
+
+    <ol start="3">
+        <li>Cueball</li>
+        <li>Black Hat</li>
+        <li>White Hat</li>
+        <li>Raptor</li>
+    </ol>
+
+In contrast, the original Markdown will not include the `start="3"`
+attribute in its output.
 
 <h3 id="including-raw-html">Including raw HTML</h3>
 
