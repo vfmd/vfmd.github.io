@@ -53,7 +53,7 @@ The vfmd project aims to deliver the following:
   * **Specification**:
     A document describing the syntax for Markdown unambiguously and
     intended for use in designing parsers for Markdown.
-    The specification document can be found [here][vfmd specification].
+    The specification document can be found [here][specification].
 
     _Status_: Done. However, it might undergo changes after
     testsuite-development / feedback.
@@ -82,14 +82,17 @@ The vfmd project aims to deliver the following:
 
     _Status_: Yet to start.
 
-[vfmd specification]: http://vfmd.github.io/vfmd-spec/specification/
+[specification]: http://vfmd.github.io/vfmd-spec/specification/
 [syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
 [vfmd-tests-repo]: https://github.com/vfmd/vfmd-tests
 
 ## How can you help?
 
-Read up the spec. If you find any ambiguities, inconsistencies or stuff
-that's just wrong, please open an issue (or pull-request) on the
-[vfmd-spec repository].
+Please take a look at the [specification], the [syntax guide] and the
+[testsuite][vfmd-tests-repo]. If you find any errors, ambiguities or
+inconsistencies, please submit an issue or pull-request in the
+appropriate repository in [GitHub](http://github.com/vfmd).
 
-[vfmd-spec repository]: https://github.com/vfmd/vfmd-spec/
+If you have comments on the strategy or the core idea, please [contact
+me](/introduction#contact).
+
