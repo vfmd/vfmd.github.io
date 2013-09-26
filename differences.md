@@ -278,9 +278,9 @@ The original Markdown syntax requires that links be surrounded in
 
     Go to <http://example.net/> and find out.
 
-the original Markdown syntax will produce the output:
+the original Markdown syntax will produce the HTML output:
 
-    Go to <a href="http://example.net/">http://example.net/</a> and find out.
+    <p>Go to <a href="http://example.net/">http://example.net/</a> and find out.</p>
 
 If the link is not surrounded in \<angle brackets\>, the original
 Markdown syntax will not recognize that as a link.
@@ -289,9 +289,9 @@ So, for the input:
 
     Go to http://example.net/ and find out.
 
-the original Markdown syntax will produce the output:
+the original Markdown syntax will produce the HTML output:
 
-    Go to http://example.net/ and find out.
+    <p>Go to http://example.net/ and find out.</p>
 
 However, in plain text email (which is the inspiration for the original
 Markdown and for vfmd), links are often found without the surrounding
@@ -305,7 +305,7 @@ For the input:
 
 vfmd will produce the HTML output:
 
-    Go to <a href="http://example.net/">http://example.net/</a> and find out.
+    <p>Go to <a href="http://example.net/">http://example.net/</a> and find out.</p>
 
 
 <h3 id="double-blank-lines">Double blank lines as end of blocks</h3>
