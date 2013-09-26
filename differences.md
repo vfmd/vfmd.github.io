@@ -78,6 +78,10 @@ In brief, these are the differences between the [vfmd syntax] and the
     with Markdown. In doing that, it also optionally allows Markdown
     constructs to be used within HTML blocks.
 
+ 9. [Character encoding]: The original Markdown syntax does not
+    explicitly require a specific character encoding. vfmd requires that
+    the character encoding be UTF-8.
+
 None of these is new, really.
 
 Items #1, #3 and #5 were the "gotchas" spotted by John Fraser as
@@ -536,4 +540,19 @@ The vfmd approach also makes it unnecessary for an implementation to
 figure out where a HTML block ends.
 
 [blank-line-to-separate-html]: http://six.pairlist.net/pipermail/markdown-discuss/2004-March/000171.html
+
+
+<h3 id="character-encoding">Character encoding</h3>
+
+[Character encoding]: #character-encoding
+
+The original Markdown syntax page does not enforce any character
+encoding for Markdown, though John Gruber has
+[suggested][encoding-gruber] that the character encoding be UTF-8 when
+recommending how Markdown data should be exchanged between applications.
+
+vfmd requires that the character encoding be UTF-8. The leading
+Byte-Order-Mark is optional, and is better avoided.
+
+[encoding-gruber]: http://daringfireball.net/linked/2011/08/05/markdown-uti
 
