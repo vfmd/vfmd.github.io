@@ -84,14 +84,11 @@ In brief, these are the differences between the [vfmd syntax] and the
 
 None of these is new, really.
 
-Items #1, #3 and #5 were the "gotchas" spotted by John Fraser as
-discussed in [Three Markdown Gotchas]. Item #2 is a syntax improvement
-that John Gruber and Aaron Swartz
-[discussed][short-ref-gruber-aaron], but this improved syntax isn't
-mentioned in the original Markdown syntax description page. Item #4 is
-the first problem that Jeff Atwood mentions in his [Responsible Open
-Source Code Parenting] post. Moreover, all these items have been
-discussed multiple times in the [markdown-discuss mailing list].
+All these items have been discussed extensively in the [markdown-discuss
+mailing list]. In addition, items #1, #3 and #5 were the "gotchas"
+spotted by John Fraser as discussed in [Three Markdown Gotchas].
+Items #1 and #4 are highlighted by Jeff Atwood in his [Responsible Open
+Source Code Parenting] blog post.
 
 [Three Markdown Gotchas]: http://blog.stackoverflow.com/2008/06/three-markdown-gotcha/
 [short-ref-gruber-aaron]: http://six.pairlist.net/pipermail/markdown-discuss/2004-March/000303.html
