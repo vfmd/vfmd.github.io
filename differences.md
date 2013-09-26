@@ -85,7 +85,7 @@ In brief, these are the differences between the [vfmd syntax] and the
 None of these is new, really.
 
 All these items have been discussed extensively in the [markdown-discuss
-mailing list]. In addition, items #1, #3 and #5 were the "gotchas"
+mailing list]. In addition, items #1, #3 and #8 were the "gotchas"
 spotted by John Fraser as discussed in [Three Markdown Gotchas].
 Items #1 and #4 are highlighted by Jeff Atwood in his [Responsible Open
 Source Code Parenting] blog post.
