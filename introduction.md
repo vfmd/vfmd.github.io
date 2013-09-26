@@ -20,7 +20,7 @@ with some [modifications][differences] to the syntax.
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
 [differences]: http://vfmd.github.io/differences/
 
-## Background
+<h2 id="background">Background</h2>
 
 The [original Markdown syntax page] is really a syntax guide that helps
 authors in writing a document in Markdown. For _implementers_ of
@@ -60,7 +60,7 @@ A specification for Markdown would make it possible for different
 implementations that adopt the specification to interpret an input in a
 consistent manner.
 
-## Prior work
+<h2 id="prior-work">Prior work</h2>
 
 There have been two significant attempts to unambiguously define the
 Markdown syntax. Both include some syntax extensions, but neither of
@@ -106,7 +106,7 @@ Markdown.
 [PEG grammar file]: https://raw.github.com/jgm/peg-markdown/master/markdown_parser.leg
 
 
-## The design of vfmd
+<h2 id="design-of-vfmd">The design of vfmd</h2>
 
 vfmd is designed with the following goals and guiding principles in
 mind.
@@ -116,7 +116,7 @@ some aspects from the [original Markdown syntax]. These [differences]
 make it possible to define the syntax as a well-defined specification,
 and also make the syntax a little more readable.
 
-### Goals
+<h3 id="goals">Goals</h3>
 
 The following are the goals for the vfmd specification:
 
@@ -129,7 +129,7 @@ The following are the goals for the vfmd specification:
     the custom additional syntax should be integrated with the handling
     of the _core syntax_
 
-### Guiding Principles
+<h3 id="guiding-priciples">Guiding Principles</h3>
 
 The following are the principles that guide the design of the vfmd
 syntax, given in the order of their preference:
@@ -145,7 +145,7 @@ syntax, given in the order of their preference:
 
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
 
-## Thanks
+<h2 id="thanks">Thanks</h2>
 
 Many thanks to:
 
@@ -156,7 +156,7 @@ Many thanks to:
 [babelmark2]: http://johnmacfarlane.net/babelmark2/
 [Babelmark2 FAQ]: http://johnmacfarlane.net/babelmark2/faq.html
 
-## Contact
+<h2 id="contact">Contact</h2>
 
 The vfmd project is by [Roopesh Chander].
 
