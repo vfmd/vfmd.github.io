@@ -70,7 +70,8 @@ The vfmd project aims to deliver the following:
   * **Tests**:
     A test suite to verify that an implementation confirms to the
     specification for HTML output. This needs to be consistent with the
-    specification.
+    specification. The current set of testcases can be found
+    [here][vfmd-tests-repo].
 
     _Status_: In progress.
 
@@ -83,6 +84,7 @@ The vfmd project aims to deliver the following:
 
 [vfmd specification]: http://vfmd.github.io/vfmd-spec/specification/
 [syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
+[vfmd-tests-repo]: https://github.com/vfmd/vfmd-tests
 
 ## How can you help?
 
