@@ -406,8 +406,7 @@ syntax guide, but is defined in the specification page.
 
 This is how vfmd handles misnested constructs:
 
- 1. Code-spans and images take the highest precedence, with the
-    first-occurring construct being prioritized
+ 1. Code-spans take the highest precedence
 
     For example, in ``[link text `and](url "with") code` span``, the
     code-span is identified, and the link is not honoured.
