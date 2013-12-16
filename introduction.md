@@ -160,7 +160,7 @@ Many thanks to:
 
 The vfmd project is by [Roopesh Chander].
 
-Email: <roop@forwardbias.in>  
+Email: <roop@roopc.net>  
 Twitter: [@roopeshchander](http://twitter.com/roopeshchander)
 
 [Roopesh Chander]: http://roopc.net/
