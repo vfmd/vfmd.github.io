@@ -71,25 +71,27 @@ The vfmd project aims to deliver the following:
     A test suite to verify that an implementation confirms to the
     specification for HTML output. This needs to be consistent with the
     specification. The current set of testcases can be found
-    [here][vfmd-tests-repo].
+    [here][vfmd-test-repo].
 
-    _Status_: In progress.
+    _Status_: Almost done.
 
   * **Implementation**:
     An implementation of the specification for converting vfmd text to
-    HTML. The implementation should be extendable to support additional
-    syntax elements in the way described in the specification.
+    HTML. The implementation will be extendable to support additional
+    syntax elements in the way described in the specification. The
+    in-development code-base can be seen [here][vfmd-src-repo].
 
-    _Status_: Yet to start.
+    _Status_: In progress.
 
 [specification]: http://vfmd.github.io/vfmd-spec/specification/
 [syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
-[vfmd-tests-repo]: https://github.com/vfmd/vfmd-tests
+[vfmd-test-repo]: https://github.com/vfmd/vfmd-test
+[vfmd-src-repo]: https://github.com/vfmd/vfmd-src
 
 ## How can you help?
 
 Please take a look at the [specification], the [syntax guide] and the
-[testsuite][vfmd-tests-repo]. If you find any errors, ambiguities or
+[testsuite][vfmd-test-repo]. If you find any errors, ambiguities or
 inconsistencies, please submit an issue or pull-request in the
 appropriate repository in [GitHub](http://github.com/vfmd).
 
