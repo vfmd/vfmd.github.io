@@ -179,7 +179,7 @@ but mentions the _implicit link name_ syntax, which looks like this:
     [Google]: http://google.com/
 
 Though the short form of the _implicit link name_ syntax (of using
-[this] instead of [this[]) isn't mentioned in the syntax page for the
+[this] instead of [this][]) isn't mentioned in the syntax page for the
 original Markdown, it was [conceived][short-ref-gruber-aaron] by John
 Gruber and Aaron Swartz, and implemented in [Markdown.pl v1.0.2b2].
 
