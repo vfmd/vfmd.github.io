@@ -75,8 +75,8 @@ In brief, these are the differences between the [vfmd syntax] and the
     well-formed.
 
     vfmd sidesteps this problem by redefining how HTML should be mixed
-    with Markdown. In doing that, it also optionally allows Markdown
-    constructs to be used within HTML blocks.
+    with Markdown. In doing that, it also provides a clean way for
+    Markdown constructs to be used within HTML blocks.
 
  9. [Character encoding]: The original Markdown syntax does not
     explicitly require a specific character encoding. vfmd requires that
@@ -465,8 +465,8 @@ block is necessary to correctly process the rest of the input.
 That apart, another point of concern is that sometimes, document authors
 would like to have text within HTML blocks processed as Markdown (and
 not as verbatim HTML). John Gruber [proposed][markdown=1 proposal] that
-document authors add `markdown="1"` to the attributes of the block-level
-HTML element within which Markdown is to be processed, like this:
+document authors add `markdown="1"` to the attributes of a `div` tag
+within which Markdown is to be processed, like this:
 
     <div class="content" markdown="1">
     Markdown is processed *here*
@@ -476,39 +476,55 @@ HTML element within which Markdown is to be processed, like this:
     No Markdown processing here
     </div>
 
-
 [markdown=1 proposal]: http://six.pairlist.net/pipermail/markdown-discuss/2004-August/000669.html
+
+[As originally implemented][Markdown.pl 1.0.2b4], the `markdown="1"`
+does not propagate to `div`s nested under the `div` with the
+`markdown="1"` attribute. So, the `markdown` attribute should also be
+added to any other `div`s down the hierarchy, as required.
+
 [Markdown.pl 1.0.2b4]: http://six.pairlist.net/pipermail/markdown-discuss/2005-September/001551.html
 
-However, this solution fails to address the case where a verbatim HTML
-block needs to be embedded within a Markdown-enabled HTML block.
-For example, consider the case where our document is composed of a
-hierarchy of block-level HTML elements, some of which need to be treated
-as HTML blocks, and some of which need to support Markdown processing,
-like this:
+Other implementations have extended this idea in different ways. Some
+variations include:
 
-    *Abstract*: Some text here
+  - Recognize `markdown="1"` on all block-level HTML tags, not just
+    `div`s
+  - Propagate the `markdown` attribute to all blocks down the hierarchy
+  - Interpret `markdown="0"` to mean "no Markdown processing under this
+    HTML element"
+  - Interpret `markdown="block"` to mean "recognize Markdown block
+    syntax under this HTML element"
 
-    <div class="main-article">
+All these implementations rely on being able to unambigously identify
+the end of the HTML element. With potentially badly-formed HTML, as we
+saw earlier, finding the correct matching end tag is a difficult
+problem.
 
-    <div id="introduction">
-        Intro text (needs Markdown processing)
+For example:
+
+    <div class="content" markdown="1">
+
+    Going to insert **real bad** HTML code from somewhere:
+
+    <div markdown="0">
+
+    <!-- Bad HTML code below -->
+    <p>See table below:
+    <table><tr><td>One<td>Two</tr>
+    <div>
+    <!-- End of bad HTML code -->
+
     </div>
 
-    <div id="content">
-        Content text (needs Markdown processing)
-        <div id="embedded-html-block">
-            HTML block (no Markdown processing here)
-        </div>
-    </div>
-
-    <div id="summary">
-        Summary text (needs Markdown processing)
-    </div>
+    Can we have Markdown **here**, please?
 
     </div>
 
-The `markdown="1"` solution does not address the above requirement.
+Given that it is not possible to correctly identify the end of the HTML
+element, for the `markdown="1"` approach to be effective, we will have
+to tell document writers to be really careful about the HTML that they
+insert in their documents.
 
 Considering the above points, vfmd takes a different approach to
 handling inline HTML. In vfmd, the Markdown-processable HTML blocks are
