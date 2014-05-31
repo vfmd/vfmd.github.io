@@ -402,14 +402,17 @@ handled, which is understandable, given that the original Markdown
 syntax page is targeted at document writers.
 
 In vfmd too, the handing of misnested constructs is not defined in the
-syntax guide, but is defined in the specification page.
+syntax guide, but there's no ambiguity on this in the vfmd specification.
 
 This is how vfmd handles misnested constructs:
 
- 1. Code-spans take the highest precedence
+ 1. Code-spans and image constructs cannot contain other span elements,
+    so they take the highest precedence.
 
-    For example, in ``[link text `and](url "with") code` span``, the
-    code-span is identified, and the link is not honoured.
+    For example, in `` [link text `and](url "with") code` span ``, the
+    link is not recognized because link contents cannot contain an
+    unescaped backtick (as described in the [syntax
+    guide][syntax-guide-inline-links]) but the code-span is recognized.
 
  2. HTML tags take the next precedence
 
@@ -426,6 +429,7 @@ The idea that the first-occuring construct should be honoured was
 [proposed][misnested-constructs-rus] by Jacob Rus and
 [endorsed][misnested-constructs-gruber] by John Gruber.
 
+[syntax-guide-inline-links]: http://vfmd.github.io/vfmd-spec/syntax/#inline-links
 [misnested-constructs-rus]: http://six.pairlist.net/pipermail/markdown-discuss/2006-September/000237.html
 [misnested-constructs-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2006-September/000241.html
 
