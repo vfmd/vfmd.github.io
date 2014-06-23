@@ -24,16 +24,17 @@
 
 .nav {
   float: right;
-  margin: 0 90px 3em 0;
+  margin: 0 0 3em 0;
   padding: 0;
   list-style: none;
   height: 1em;
+  font-size: 90%;
 }
 .nav li {
   float: right;
   margin: 0 0 0 1em;
 }
-@media (max-width: 720px) {
+@media (max-width: 640px) {
   .nav-container {
     display: none;
   }
