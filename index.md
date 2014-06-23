@@ -55,8 +55,7 @@ The vfmd project aims to deliver the following:
     intended for use in designing parsers for Markdown.
     The specification document can be found [here][specification].
 
-    _Status_: Done. However, it might undergo changes after
-    testsuite-development / feedback.
+    _Status_: Done.
 
   * **Syntax guide**:
     A document describing the syntax for Markdown, intended for use by
@@ -64,24 +63,23 @@ The vfmd project aims to deliver the following:
     specification, and can have some ambiguities.
     The syntax guide can be found [here][syntax guide].
 
-    _Status_: Done. However, it might undergo changes after
-    testsuite-development / feedback.
+    _Status_: Done.
 
   * **Tests**:
     A test suite to verify that an implementation confirms to the
-    specification for HTML output. This needs to be consistent with the
-    specification. The current set of testcases can be found
-    [here][vfmd-test-repo].
+    specification for HTML output. This should cover all corner cases
+    and needs to be consistent with the [specification].
+    The current set of testcases can be found [here][vfmd-test-repo].
 
-    _Status_: Almost done.
+    _Status_: In progress; almost done.
 
   * **Implementation**:
     An implementation of the specification for converting vfmd text to
     HTML. The implementation will be extendable to support additional
-    syntax elements in the way described in the specification. The
-    in-development code-base can be seen [here][vfmd-src-repo].
+    syntax elements in the way described in the specification. A working
+    implementation written in C++ is [here][vfmd-src-repo].
 
-    _Status_: In progress.
+    _Status_: Done.
 
 [specification]: http://www.vfmd.org/vfmd-spec/specification/
 [syntax guide]: http://www.vfmd.org/vfmd-spec/syntax/
@@ -90,10 +88,10 @@ The vfmd project aims to deliver the following:
 
 ## How can you help?
 
-Please take a look at the [specification], the [syntax guide] and the
-[testsuite][vfmd-test-repo]. If you find any errors, ambiguities or
-inconsistencies, please submit an issue or pull-request in the
-appropriate repository in [GitHub](http://github.com/vfmd).
+Please take a look at the [specification] and the [syntax guide], and try
+out the [implementation][vfmd-src-repo]. If you find any errors,
+ambiguities or inconsistencies, please submit an issue or pull-request
+in the appropriate repository in [GitHub](http://github.com/vfmd).
 
 If you have comments on the strategy or the core idea, please [contact
 me](/introduction#contact).
