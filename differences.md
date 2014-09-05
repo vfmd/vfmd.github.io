@@ -71,7 +71,7 @@ In brief, these are the differences between the [vfmd syntax] and the
     HTML blocks can be freely included within Markdown, and shall be
     recognized correctly. In practice however, correctly figuring out
     where the HTML block ends is a hard problem for a Markdown parser,
-    especially when there is no guarentee that the HTML shall be
+    especially when there is no guarantee that the HTML shall be
     well-formed.
 
     vfmd sidesteps this problem by redefining how HTML should be mixed
