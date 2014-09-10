@@ -322,14 +322,14 @@ The original Markdown syntax does not specify such a rule.
 
 For example:
 
-<pre><code> 1. Item 1
- 2. Item 2
- 3. Item 3
+<pre><code>1. Item 1
+2. Item 2
+3. Item 3
 
 
 
-    * Some other list
-    * Some other list
+   * Some other list
+   * Some other list
 </code></pre>
 
 In vfmd, the above text will be interpreted as two separate lists,
