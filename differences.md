@@ -95,7 +95,7 @@ Source Code Parenting] blog post.
 [Responsible Open Source Code Parenting]: http://www.codinghorror.com/blog/2009/12/responsible-open-source-code-parenting.html
 [markdown-discuss mailing list]: http://six.pairlist.net/pipermail/markdown-discuss/
 
-## Differences
+## Details of the differences
 
 <h3 id="intra-word-emphasis">Intra-word emphasis</h3>
 
