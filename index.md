@@ -71,7 +71,7 @@ The vfmd project aims to deliver the following:
     and needs to be consistent with the [specification].
     The current set of testcases can be found [here][vfmd-test-repo].
 
-    _Status_: In progress; almost done.
+    _Status_: [Incomplete](https://github.com/vfmd/vfmd-test/blob/master/README.md#todo).
 
   * **Implementation**:
     An implementation of the specification for converting vfmd text to
