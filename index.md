@@ -93,6 +93,9 @@ out the [implementation][vfmd-src-repo]. If you find any errors,
 ambiguities or inconsistencies, please submit an issue or pull-request
 in the appropriate repository in [GitHub](http://github.com/vfmd).
 
+Please take a look at the [tests][vfmd-test-repo], and contribute
+missing or additional tests if possible.
+
 If you have comments on the strategy or the core idea, please [contact
 me](/introduction#contact).
 
