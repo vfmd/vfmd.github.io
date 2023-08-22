@@ -26,8 +26,8 @@ document.
 
 [Markdown]: http://daringfireball.net/projects/markdown/
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-[vfmd syntax]: http://www.vfmd.org/vfmd-spec/syntax/
-[vfmd syntax guide]: http://www.vfmd.org/vfmd-spec/syntax/
+[vfmd syntax]: http://vfmd.github.io/vfmd-spec/syntax/
+[vfmd syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
 
 ## Overview of the differences
 
@@ -429,7 +429,7 @@ The idea that the first-occuring construct should be honoured was
 [proposed][misnested-constructs-rus] by Jacob Rus and
 [endorsed][misnested-constructs-gruber] by John Gruber.
 
-[syntax-guide-inline-links]: http://www.vfmd.org/vfmd-spec/syntax/#inline-links
+[syntax-guide-inline-links]: http://vfmd.github.io/vfmd-spec/syntax/#inline-links
 [misnested-constructs-rus]: http://six.pairlist.net/pipermail/markdown-discuss/2006-September/000237.html
 [misnested-constructs-gruber]: http://six.pairlist.net/pipermail/markdown-discuss/2006-September/000241.html
 

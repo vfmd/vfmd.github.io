@@ -43,8 +43,8 @@ so the specification includes information on how the syntax can be
 extended to support features like that in an implementation of vfmd.
 
 [Markdown]: http://daringfireball.net/projects/markdown/
-[Introducing vfmd]: http://www.vfmd.org/introduction/
-[differences]: http://www.vfmd.org/differences/
+[Introducing vfmd]: http://vfmd.github.io/introduction/
+[differences]: http://vfmd.github.io/differences/
 
 ## Deliverables
 
@@ -81,8 +81,8 @@ The vfmd project aims to deliver the following:
 
     _Status_: Done.
 
-[specification]: http://www.vfmd.org/vfmd-spec/specification/
-[syntax guide]: http://www.vfmd.org/vfmd-spec/syntax/
+[specification]: http://vfmd.github.io/vfmd-spec/specification/
+[syntax guide]: http://vfmd.github.io/vfmd-spec/syntax/
 [vfmd-test-repo]: https://github.com/vfmd/vfmd-test
 [vfmd-src-repo]: https://github.com/vfmd/vfmd-src
 

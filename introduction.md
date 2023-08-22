@@ -18,7 +18,7 @@ with some [modifications][differences] to the syntax.
 [John Gruber]: http://daringfireball.net/
 [Markdown]: http://daringfireball.net/projects/markdown/
 [original Markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-[differences]: http://www.vfmd.org/differences/
+[differences]: http://vfmd.github.io/differences/
 
 <h2 id="background">Background</h2>
 
